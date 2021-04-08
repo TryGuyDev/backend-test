@@ -1,0 +1,45 @@
+.main-card {
+    margin-top: 20px;
+    background-color: #949AAC;
+    border-radius: 15px;
+    padding-bottom: 8px; 
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+}
+
+.kanban-title {
+    font-weight: semi-bold;
+    color: rgb(20, 20, 20);
+    font-family: 'Open Sans', sans-serif;
+}
+
+a:nth-child(odd){
+    background-color: rgb(120, 141, 145);
+}
+
+a:nth-child(even){
+    background-color: #0b81e2;
+}
+
+mat-nav-list{
+    padding-top:0;
+}
+
+.item-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.kanban-createdDate {
+    color:black;
+    font-family: Open Sans,sans-serif;
+    font-size:small;
+    display: flex;
+    align-items: center;
+}
+
+table {
+    width: 100%;
+  }

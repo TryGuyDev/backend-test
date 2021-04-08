@@ -1,0 +1,75 @@
+<div class="dialog-title">
+  <h1 mat-dialog-title>{{ dialogTitle }}</h1>
+</div>
+
+
+<mat-dialog-content [formGroup]="form"
+  class="dialog-content">
+
+  <mat-form-field>
+    <input matInput
+      placeholder="Title"
+      formControlName="title"
+      required
+      class="task-title">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Select color"
+      formControlName="color">
+      <mat-option value="#feff9c">
+        YELLOW</mat-option>
+      <mat-option value="#7afcff">
+        BLUE</mat-option>
+      <mat-option value="#ff7eb9">
+        PINK</mat-option>
+      <mat-option value="#ff0000">
+        RED</mat-option>
+      <mat-option value="#008000">
+        GREEN</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="1"
+      cdkAutosizeMaxRows="2"
+      placeholder="Description"
+      formControlName="description">
+    </textarea>
+  </mat-form-field>
+
+  <div class="row"
+    formArrayName="tags">
+    <div class="form-group row mb-2"
+      *ngFor="let tag of tags.controls; let i=index"
+      [formGroupName]="i">
+
+      <label class="col-md-2 col-form-label">Tag {{i + 1}}</label>
+      <mat-form-field>
+        <input matInput
+          placeholder="Tags (comma delimited)"
+          formControlName="name"
+          class="task-title">
+      </mat-form-field>
+      <mat-icon *ngIf="i === 1" (click)="deleteTag(i)" class="delete-btn">delete_forever</mat-icon>
+    </div>
+  </div>
+
+  <button mat-mini-fab
+    color="primary"
+    (click)="addNewTag()">
+    <mat-icon>add</mat-icon>
+  </button>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button"
+    (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary"
+    (click)="save()">Save</button>
+  <button class="mat-raised-button"
+    (click)="delete()">Delete</button>
+</mat-dialog-actions>
